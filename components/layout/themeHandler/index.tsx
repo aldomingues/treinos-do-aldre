@@ -11,9 +11,9 @@ const ThemeHandler = () => {
     return (
         <StyledThemeHandler className={mode == "dark" ? " active" : ""}>
             <div className={`sun_moon${mode == "dark" ? " active" : ""}`} onClick={() => setMode(mode == "light" ? "dark" : "light")}>
-                <div className={`theme_btn${mode == "dark" ? " active" : ""}`}>
+                {/* <div className={`theme_btn${mode == "dark" ? " active" : ""}`}>
                     <FaMoon />
-                </div>
+                </div> */}
 
             </div>
         </StyledThemeHandler>
