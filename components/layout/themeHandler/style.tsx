@@ -16,7 +16,7 @@ export const StyledThemeHandler = styled.div`
       }
 
     position: fixed;
-    top: 10px;
+    top: calc(100px - 10vw);
     left: 50%;
     // background-color: #ffffdd33;
     height: 150vw;

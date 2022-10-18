@@ -8,7 +8,6 @@ import { GlobalContext } from 'context/GlobalContext'
 // const {theme} = useContext(GlobalContext)
 export const StyledMenu = styled.section.attrs(props => ({
     theme: props.theme,
-    haha: console.log(props)
 }))`
     z-index: 10;
     width: 100vw;
@@ -23,6 +22,11 @@ export const StyledMenu = styled.section.attrs(props => ({
         width: 40%;
         margin: auto auto;
         min-width: 300px;
+        transition: min-width 0.1s ease-in;
+
+        @media screen and (max-width: 319px) {
+            min-width: 200px;
+        }
     }
 
     .menu_item {
@@ -30,12 +34,22 @@ export const StyledMenu = styled.section.attrs(props => ({
         transition: color 0.7s ease-in, background-color 0.7s, filter 0.05s, transform 0.05s;
         margin: 7px 0;
         text-align: center;
-        padding: 10px 0;
+        padding: 10px 5px;
         border-radius: 4px;
         text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
 
         svg {
-            margin-right: 10px;
+            // margin-left: 10px;
+            width: 10%;
+        }
+
+        span {
+            width: 90%;
         }
 
         &:nth-child(5n+1) {
@@ -59,46 +73,36 @@ export const StyledMenu = styled.section.attrs(props => ({
             filter: drop-shadow(0px 0px 5px black);
             transform: scale(1.05);
         }
-    }
-`
 
-export const MenuItem = styled.div`
-    color: #fff;
-    transition: all 0.05s ease-in;
-    margin: 7px 0;
-    text-align: center;
-    padding: 10px 0;
-    border-radius: 4px;
-    text-transform: uppercase;
+        &.work_in_progress {
+            cursor: default;
 
-    svg {
-        margin-right: 10px;
-    }
+            &:after {
+                content: "Feature em Desenvolvimento";
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #444;
+                height: 100%;
+                width: 100%;
+                line-height: 100%;
+                border-radius: 4px;
+                color: #fff;
+    
+                transition: bottom 0.15s ease-in;
+                position: absolute;
+                bottom: 100%;
+            }
 
-    &:nth-child(5n+1) {
-        background-color: ${Theme.randomPallete[0]};
-    }
-    &:nth-child(5n+2) {
-        background-color: ${Theme.randomPallete[1]};
-    }
-    &:nth-child(5n+3) {
-        background-color: ${Theme.randomPallete[2]};
-    }
-    &:nth-child(5n+4) {
-        background-color: ${Theme.randomPallete[3]};
-    }
-    &:nth-child(5n) {
-        background-color: ${Theme.randomPallete[4]};
-    }
+            &:hover {
+                filter: none;
+                transform: scale(1);
 
-    &:hover {
-        cursor: pointer;
-        filter: drop-shadow(0px 0px 5px black);
-        transform: scale(1.05);
+                &:after {
+                    bottom: 0px;
+                }
+            }
+
+        }
     }
-`
-export const ListMenu = styled.div`
-    width: 40%;
-    margin: auto auto;
-    min-width: 300px;
 `

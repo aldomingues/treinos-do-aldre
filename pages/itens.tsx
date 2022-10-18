@@ -3,52 +3,56 @@ import Head from 'next/head'
 import Menu from '@components/layout/menu'
 import { MenuItemProps } from '@components/layout/menu/interface'
 import ThemeHandler from '@components/layout/themeHandler'
+import { GiDatabase, GiPokerHand } from "react-icons/gi";
+import { FaSpotify, FaImages } from "react-icons/fa";
+import { TbPokeball } from "react-icons/tb"
 
 const Itens: NextPage = () => {
   const menuData: MenuItemProps[] = [
     {
-      label: "Opção 1",
-      icon: "a",
+      label: "Crud",
+      icon: <GiDatabase/>,
       route: "home",
+      wp: true
     },
     {
-      label: "Opção 2",
-      icon: "a",
+      label: "Cassino",
       route: "home1",
+      icon: <GiPokerHand/>,
+      wp: true
     },
     {
-      label: "Opção 3",
-      icon: "a",
+      label: "Upload de Imagens",
       route: "home2",
+      icon: <FaImages/>,
+      wp: true
     },
     {
-      label: "Opção 4",
-      icon: "a",
+      label: "Player Spotify",
       route: "home3",
+      icon: <FaSpotify/>,
+      wp: true
     },
     {
-      label: "Opção 5",
-      icon: "a",
+      label: "Pokedex",
       route: "home4",
+      icon: <TbPokeball/>,
+      wp: true
     },
     // {
     //   label: "Opção 6",
-    //   icon: "a",
     //   route: "home5",
     // },
     // {
     //   label: "Opção 7",
-    //   icon: "a",
     //   route: "home6",
     // },
     // {
     //   label: "Opção 8",
-    //   icon: "a",
     //   route: "home7",
     // },
     // {
     //   label: "Opção 9",
-    //   icon: "a",
     //   route: "home8",
     // },
   ]

@@ -15,7 +15,6 @@ const Home: NextPage = () => {
       </Head>
 
     <Link href={'itens'}>Iniciar</Link>
-    <ThemeHandler></ThemeHandler>
     </div>
   )
 }
