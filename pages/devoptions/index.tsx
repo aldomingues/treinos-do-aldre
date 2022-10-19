@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { StyledSection } from './style'
+import StyledSection from './style'
 import { models } from 'pages/api/models'
 import TesteService from '@services/testes'
 import { useState } from 'react'

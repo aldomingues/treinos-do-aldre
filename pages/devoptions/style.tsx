@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledSection = styled.section`
+const StyledSection = styled.section`
     height: 90vh;
     width: 90vw;
     margin: 5vh auto;
@@ -39,3 +39,5 @@ export const StyledSection = styled.section`
         }
     }
 `
+
+export default StyledSection
