@@ -5,7 +5,9 @@ import { MenuItemProps } from '@components/layout/menu/interface'
 import ThemeHandler from '@components/layout/themeHandler'
 import { GiDatabase, GiPokerHand } from "react-icons/gi";
 import { FaSpotify, FaImages } from "react-icons/fa";
-import { TbPokeball } from "react-icons/tb"
+import { TbPokeball } from "react-icons/tb";
+import { RiCharacterRecognitionFill } from "react-icons/ri"
+import Header from '@components/layout/header'
 
 const Itens: NextPage = () => {
   const menuData: MenuItemProps[] = [
@@ -39,10 +41,12 @@ const Itens: NextPage = () => {
       icon: <TbPokeball/>,
       wp: true
     },
-    // {
-    //   label: "Opção 6",
-    //   route: "home5",
-    // },
+    {
+      label: "Termo",
+      route: "home5",
+      icon: <RiCharacterRecognitionFill/>,
+      wp: true
+    },
     // {
     //   label: "Opção 7",
     //   route: "home6",
@@ -65,6 +69,7 @@ const Itens: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Header/>
       <Menu data={menuData} />
       <ThemeHandler/>
     </div>
