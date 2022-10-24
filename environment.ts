@@ -1,8 +1,7 @@
-// const url = 'http://localhost:3000'
-const url = 'https://treinos-do-aldre.vercel.app'
-const enable_dev_options = true
+const url = process.env.APP_URL
 
 export const environment = {
     url,
-    apiUrl: `${url}/api/`
+    apiUrl: `${url}/api/`,
+    enable_dev_options: process.env.ENABLE_DEV_OPTIONS
 }
