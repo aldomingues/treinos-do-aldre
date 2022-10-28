@@ -56,10 +56,10 @@ export const DarkTheme: ThemeProps = {
     background: "#101010",
 
     randomPallete: [
-        "#ee88b7",
-        "#ebe5ac",
-        "#c0e3cd",
-        "#87bde8",
-        "#e4c1f9",
+        "#ffb5a7",
+        "#fcd5ce",
+        "#f8edeb",
+        "#f9dcc4",
+        "#fec89a",
     ]
 }
