@@ -1,15 +1,18 @@
 import { prisma } from "pages/api/api";
 
 export default async function handle(req: any, res: any) {
+    console.log(req.query.model)
     if (req.method === 'GET') {
-        let itens = await prisma.item.findMany();
+        //@ts-ignore
+        let itens = await prisma[req.query.model].findMany();
         await prisma.$disconnect();
         res.json(itens);
     }
 
     if (req.method === 'POST') {
         try {
-            let itens = await prisma.item.create({
+            //@ts-ignore
+            let itens = await prisma[req.query.model].create({
                 data: {}
             });
             res.json(itens);
