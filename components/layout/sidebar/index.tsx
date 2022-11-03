@@ -5,21 +5,24 @@ import { CrudProvider, CrudContext } from 'context/CrudContext';
 import { useRouter } from "next/router";
 
 
-import { GiDatabase, GiReturnArrow, GiMoon, GiSun } from "react-icons/gi";
+import { GiDatabase, GiHamburgerMenu } from "react-icons/gi";
+import { HiSun, HiMoon } from "react-icons/hi";
+import { FaArrowLeft } from "react-icons/fa"
 
 const SideBar = () => {
     const { theme, mode, swapMode } = useContext(GlobalContext);
     const { selectMenu, selectedMenu } = useContext(CrudContext);
     const router = useRouter();
+    const [hidden, setHidden] = useState<boolean>(false);
 
     return (
-        <StyledSideBar theme={theme}>
+        <StyledSideBar theme={theme} className={hidden ? "" : "show"}>
             <div>
-                <div onClick={() => selectMenu("item")} className="item_menu">
+                <div onClick={() => {selectMenu("item"); setHidden(true)}} className={`item_menu${selectedMenu == "item" ? " selected" : ""}`}>
                     <GiDatabase />
                     Item
                 </div>
-                <div onClick={() => selectMenu("tag")} className="item_menu">
+                <div onClick={() => {selectMenu("tag"); setHidden(true)}} className={`item_menu${selectedMenu == "tag" ? " selected" : ""}`}>
                     <GiDatabase />
                     Categoria
                 </div>
@@ -27,8 +30,9 @@ const SideBar = () => {
 
             <div>
                 <div className="footer_item_menu">
-                    <GiReturnArrow onClick={() => router.push('/itens')} />
-                    {mode == "dark" ? <GiSun onClick={() => swapMode()} /> : <GiMoon onClick={() => swapMode()} />}
+                    <FaArrowLeft onClick={() => router.push('/')} />
+                    {mode == "dark" ? <HiSun onClick={() => swapMode()} /> : <HiMoon onClick={() => swapMode()} />}
+                    <GiHamburgerMenu className="mobile" onClick={() => setHidden(!hidden)} />
                 </div>
             </div>
         </StyledSideBar>

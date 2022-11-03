@@ -8,6 +8,7 @@ import { FaSpotify, FaImages } from "react-icons/fa";
 import { TbPokeball } from "react-icons/tb";
 import { RiCharacterRecognitionFill } from "react-icons/ri"
 import Header from '@components/layout/header'
+import Version from '@components/layout/version'
 
 const Itens: NextPage = () => {
   const menuData: MenuItemProps[] = [
@@ -71,6 +72,7 @@ const Itens: NextPage = () => {
       <Header/>
       <Menu data={menuData} />
       <ThemeHandler/>
+      <Version/>
     </div>
   )
 }

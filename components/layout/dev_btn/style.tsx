@@ -8,7 +8,7 @@ export const StyledBTN = styled.div`
     background-color: #333;
     padding: 10px;
 
-    position: absolute;
+    position: fixed;
     bottom: 50px;
     right: 50px;
     border-radius: 100%;

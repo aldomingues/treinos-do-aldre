@@ -22,11 +22,11 @@ export interface ThemeProps {
 export const Theme: ThemeProps = {
     primary: {
         default: "#ff9f1c",
-        light: "#cbf3f0"
+        light: "#ffbf69"
     },
     secondary: {
         default: "#2ec4b6",
-        light: "#ffbf69"
+        light: "#56dbcf"
     },
 
     sky_background: "#9ddfde",

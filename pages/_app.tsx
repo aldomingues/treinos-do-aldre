@@ -6,7 +6,8 @@ import DevBtn from '@components/layout/dev_btn'
 import { environment } from '@environment'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const enableDev = environment.enable_dev_options
+  const enableDev = environment.enable_dev_options;
+  
   return (
     <GlobalProvider>
       {/* <Header/> */}
