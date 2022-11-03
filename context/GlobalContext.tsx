@@ -14,7 +14,6 @@ export function GlobalProvider({ children }: any) {
     const [theme, setTheme] = useState<ThemeProps>(Theme);
     useEffect(() => {
         if (typeof window !== "undefined") {
-            console.log(localStorage.getItem('mode'))
             //@ts-ignore
             setMode(localStorage.getItem('mode') || "light")
         }

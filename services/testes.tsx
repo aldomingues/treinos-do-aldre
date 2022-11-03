@@ -17,11 +17,11 @@ class Testes {
         var response;
         switch (method) {
             case "get":
-                response = await api.get(`${environment.apiUrl}${model}?${query}`, headers);
+                response = await api.get(`${model}?${query}`, headers);
                 break;
             
             case "post":
-                response = await api.post(`${environment.apiUrl}${model}`, {}, headers);
+                response = await api.post(`${model}`, {}, headers);
                 break;
             default:
                 response = {}
