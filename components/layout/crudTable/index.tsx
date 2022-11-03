@@ -1,5 +1,4 @@
 import { StyledTable } from "./style"
-import { useState, useEffect } from "react"
 import { GlobalContext } from "context/GlobalContext";
 import { useContext } from "react";
 import { FaTrashAlt, FaPlus, FaPen } from "react-icons/fa"

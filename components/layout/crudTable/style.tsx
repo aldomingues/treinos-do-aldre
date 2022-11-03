@@ -10,6 +10,7 @@ export const StyledTable = styled.table.attrs(props => ({
     width: 100%;
     border-spacing: 0px;
     padding: 15px 20px;
+    overflow: auto;
 
     td {
         border-top: solid 2px ${props => props.theme.dark_background};
@@ -31,6 +32,7 @@ export const StyledTable = styled.table.attrs(props => ({
         transition: background-color 0.3s ease-in;
     }
     td, th {
+        min-width: 80px;
         transition: all 0.3s ease-in;
         padding: 8px 10px;
         text-align: left;
@@ -70,10 +72,23 @@ export const StyledTable = styled.table.attrs(props => ({
             justify-content: space-evenly;
             flex-wrap: wrap;
 
+            svg {
+                margin-top: 5px;
+                width: 1.7rem;
+                height: 1.7rem;
+            }
             svg:not(:first-child) {
                 margin-left: 0px;
-                margin-top: 5px;
             }
+        }
+    }
+
+    @media only screen and (max-width: 425px) {
+        td, th {
+            min-width: 0px;
+            transition: all 0.3s ease-in;
+            padding: 8px 10px;
+            text-align: center;
         }
     }
 `

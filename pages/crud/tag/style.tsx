@@ -5,7 +5,8 @@ const StyledComponent = styled.div.attrs(props => ({
     theme: props.theme,
 }))`
     z-index: 10;
-    display: flex;
+    overflow-x: auto;
+    display: block;
     justify-content: center;
     align-items: center;
     background-color: ${props => props.theme.background};

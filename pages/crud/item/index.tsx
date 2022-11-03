@@ -3,12 +3,13 @@ import { useContext } from 'react'
 import { CrudContext } from 'context/CrudContext';
 import { GlobalContext } from "context/GlobalContext";
 import Table from '@components/layout/crudTable';
+import Spinner from '@components/layout/spinner';
 
 import StyledComponent from './style'
 
 const ItemContent = () => {
     const { theme } = useContext(GlobalContext);
-    const { selectMenu, selectedMenu, items } = useContext(CrudContext);
+    const { selectMenu, selectedMenu, items, loading } = useContext(CrudContext);
     const columns = [
         {
             label: "ID",
@@ -36,6 +37,7 @@ const ItemContent = () => {
     return (
         <StyledComponent theme={theme}>
             <Table columns={columns} data={items} deleteFunc={onDelete} editFunc={onEdit}/>
+            {loading && <Spinner size={180} speed={1.5} thickness={4}/>}
         </StyledComponent>
     )
 }

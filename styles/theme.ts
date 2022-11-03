@@ -1,11 +1,13 @@
 export interface ThemeProps {
     primary: {
         default: string,
-        light: string
+        light: string,
+        dark: string
     },
     secondary: {
         default: string,
-        light: string
+        light: string,
+        dark: string
     },
 
     inverse: string,
@@ -21,12 +23,14 @@ export interface ThemeProps {
 
 export const Theme: ThemeProps = {
     primary: {
-        default: "#ff9f1c",
-        light: "#ffbf69"
+        default: "#ed682f",
+        light: "#eb7442",
+        dark: "#d4531c"
     },
     secondary: {
-        default: "#2ec4b6",
-        light: "#56dbcf"
+        default: "#4169E1",
+        dark: "#2d56cf",
+        light: "#587ae0"
     },
 
     sky_background: "#9ddfde",
@@ -49,12 +53,14 @@ export const Theme: ThemeProps = {
 
 export const DarkTheme: ThemeProps = {
     primary: {
-        default: "#ff9f1c",
-        light: "#cbf3f0"
+        default: "#ed682f",
+        light: "#eb7442",
+        dark: "#d4531c"
     },
     secondary: {
-        default: "#2ec4b6",
-        light: "#ffbf69"
+        default: "#4169E1",
+        dark: "#2d56cf",
+        light: "#587ae0"
     },
 
     color: "#101010",
