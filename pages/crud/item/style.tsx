@@ -4,8 +4,9 @@ import styled from 'styled-components'
 const StyledComponent = styled.div.attrs(props => ({
     theme: props.theme,
 }))`
+    overflow-x: auto;
     z-index: 10;
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     background-color: ${props => props.theme.background};

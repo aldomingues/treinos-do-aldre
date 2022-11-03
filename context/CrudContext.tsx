@@ -7,7 +7,8 @@ export const CrudContext = createContext({} as {
     selectMenu: (menu: "item" | "tag") => void,
     selectedMenu: string,
     items: any[],
-    tags: any[]
+    tags: any[],
+    loading: boolean
 })
 
 export function CrudProvider({ children }: any) {
@@ -19,6 +20,7 @@ export function CrudProvider({ children }: any) {
     const service = TestesService();
 
     const refreshItems = async () => {
+        setItems([]);
         setLoading(true);
         const res = await service.customRequest("item", "get", "");
         setItems(res.data);
@@ -26,6 +28,7 @@ export function CrudProvider({ children }: any) {
     }
 
     const refreshTags = async () => {
+        setTags([]);
         setLoading(true);
         const res = await service.customRequest("tag", "get", "");
         setTags(res.data);
@@ -49,7 +52,7 @@ export function CrudProvider({ children }: any) {
 
 
     return (
-        <CrudContext.Provider value={{ selectedMenu, selectMenu, items, tags }}>
+        <CrudContext.Provider value={{ selectedMenu, selectMenu, items, tags, loading }}>
             {children}
         </CrudContext.Provider>
     )
