@@ -24,17 +24,19 @@ const Table = (props: DataTable) => {
                     ))}
                 </tr>
             </thead>
-            <tbody>
-                {props.data.map((item) => (
-                    <tr key={item.id} className="custom_row">
-                        {props.columns.map((col) => (
-                            <td key={`${col.key}-${item.id}`}>
-                                {col.format ? col.format(item[col.key]) : item[col.key]}
-                            </td>
-                        ))}
-                    </tr>
-                ))}
-            </tbody>
+            {(props.data && (props.data.length > 0)) &&
+                <tbody>
+                    {props.data.map((item) => (
+                        <tr key={item.id} className="custom_row">
+                            {props.columns.map((col) => (
+                                <td key={`${col.key}-${item.id}`}>
+                                    {col.format ? col.format(item[col.key]) : item[col.key]}
+                                </td>
+                            ))}
+                        </tr>
+                    ))}
+                </tbody>
+            }
         </StyledTable>
     )
 }

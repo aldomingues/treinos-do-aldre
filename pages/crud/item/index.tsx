@@ -4,7 +4,7 @@ import { CrudContext } from 'context/CrudContext';
 import { GlobalContext } from "context/GlobalContext";
 import Table from '@components/layout/crudTable';
 
-import { StyledComponent } from './style'
+import StyledComponent from './style'
 
 const ItemContent = () => {
     const { theme } = useContext(GlobalContext);

@@ -15,7 +15,10 @@ export const StyledPage = styled.section.attrs(props => ({
     transition: background-color 0.3s ease-in;
 `
 
+
 export const CrudControllerStyle = styled.div`
     width: calc(100% - 270px);
     margin-left: 270px;
 `
+
+export default StyledPage;
