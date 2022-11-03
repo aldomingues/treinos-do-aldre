@@ -25,10 +25,17 @@ const ItemContent = () => {
         }
     ];
 
+    const onDelete = async (item: any) => {
+        console.log("deletar: ", item.id)
+    }
+
+    const onEdit = async (item: any) => {
+        console.log("editar: ", item.id)
+    }
+
     return (
         <StyledComponent theme={theme}>
-            {/* abc */}
-            <Table columns={columns} data={items} />
+            <Table columns={columns} data={items} deleteFunc={onDelete} editFunc={onEdit}/>
         </StyledComponent>
     )
 }
