@@ -8,11 +8,26 @@ import { StyledComponent } from './style'
 
 const TagContent = () => {
     const { theme } = useContext(GlobalContext);
-    const { selectMenu, selectedMenu } = useContext(CrudContext);
+    const { selectMenu, selectedMenu, tags } = useContext(CrudContext);
+    const columns = [
+        {
+            label: "ID",
+            key: "id",
+        },
+        {
+            label: "Nome",
+            key: "name",
+        },
+        {
+            label: "Data de criação",
+            key: "created_at",
+            format: (e: any) => {return new Date(e).toLocaleDateString()}
+        }
+    ];
 
     return (
         <StyledComponent theme={theme}>
-            Tag
+            <Table data={tags} columns={columns} />
         </StyledComponent>
     )
 }

@@ -5,24 +5,31 @@ import TestesService from '@services/testes'
 
 export const CrudContext = createContext({} as {
     selectMenu: (menu: "item" | "tag") => void,
-    selectedMenu: string
+    selectedMenu: string,
+    items: any[],
+    tags: any[]
 })
 
 export function CrudProvider({ children }: any) {
-    const [tags, setTags] = useState<any[] | undefined>(undefined);
-    const [items, setItems] = useState<any[] | undefined>(undefined);
+    const [tags, setTags] = useState<any[]>([]);
+    const [items, setItems] = useState<any[]>([]);
     const [selectedMenu, selectMenu] = useState<"item" | "tag">("item");
     const [stage, setStage] = useState<"table" | "edit" | "new">("table");
+    const [loading, setLoading] = useState<boolean>(false);
     const service = TestesService();
 
     const refreshItems = async () => {
+        setLoading(true);
         const res = await service.customRequest("item", "get", "");
-        console.log(res);
+        setItems(res.data);
+        setLoading(false);
     }
 
     const refreshTags = async () => {
+        setLoading(true);
         const res = await service.customRequest("tag", "get", "");
-        console.log(res);
+        setTags(res.data);
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -42,7 +49,7 @@ export function CrudProvider({ children }: any) {
 
 
     return (
-        <CrudContext.Provider value={{ selectedMenu, selectMenu }}>
+        <CrudContext.Provider value={{ selectedMenu, selectMenu, items, tags }}>
             {children}
         </CrudContext.Provider>
     )

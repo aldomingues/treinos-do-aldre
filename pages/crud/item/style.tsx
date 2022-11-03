@@ -5,7 +5,6 @@ export const StyledComponent = styled.div.attrs(props => ({
     theme: props.theme,
 }))`
     z-index: 10;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;

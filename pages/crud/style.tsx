@@ -9,12 +9,13 @@ export const StyledPage = styled.section.attrs(props => ({
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     background-color: ${props => props.theme.background};
     color: ${props => props.theme.inverse};
     transition: background-color 0.3s ease-in;
 `
 
 export const CrudControllerStyle = styled.div`
-    width: 100%;
+    width: calc(100% - 270px);
+    margin-left: 270px;
 `
