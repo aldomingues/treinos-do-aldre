@@ -1,7 +1,6 @@
 import { prisma } from "pages/api/api";
 
 export default async function handle(req: any, res: any) {
-    console.log(req.query.model)
     if (req.method === 'GET') {
         //@ts-ignore
         let itens = await prisma[req.query.model].findMany();
