@@ -3,7 +3,7 @@ import { StyledMenu } from "./style"
 import Link from "next/link"
 import { GiHammerNails } from "react-icons/gi";
 import { MenuItemProps } from "./interface";
-import { GlobalContext, GlobalProvider } from "context/GlobalContext";
+import { GlobalContext } from "context/GlobalContext";
 import { useContext } from "react";
 
 const Menu = (props: { data: MenuItemProps[] }) => {

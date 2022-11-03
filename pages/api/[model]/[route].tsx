@@ -1,6 +1,8 @@
 import { prisma } from "pages/api/api";
 
 export default async function handle(req: any, res: any) {
+  console.log('rota')
+  console.log(req)
   if (req.method === 'GET') {
     let itens = await prisma.item.findMany();
     res.json(itens);

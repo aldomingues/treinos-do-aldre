@@ -14,8 +14,7 @@ const Itens: NextPage = () => {
     {
       label: "Crud",
       icon: <GiDatabase/>,
-      route: "home",
-      wp: true
+      route: "crud"
     },
     {
       label: "Cassino",

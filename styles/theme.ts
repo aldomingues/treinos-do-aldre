@@ -11,7 +11,10 @@ export interface ThemeProps {
     inverse: string,
     color: string;
     sky_background: string,
+
     background: string,
+    light_background: string,
+    dark_background: string,
 
     randomPallete: string[]
 }
@@ -27,7 +30,11 @@ export const Theme: ThemeProps = {
     },
 
     sky_background: "#9ddfde",
+
     background: "#eeeeee",
+    light_background: "#ffffff",
+    dark_background: "#cccccc",
+
     color: "#fff",
     inverse: "#101010",
 
@@ -53,7 +60,10 @@ export const DarkTheme: ThemeProps = {
     color: "#101010",
     inverse: "#fff",
     sky_background: "#020412",
+
     background: "#101010",
+    light_background: "#333",
+    dark_background: "#0a0a0a",
 
     randomPallete: [
         "#ffb5a7",

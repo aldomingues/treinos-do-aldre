@@ -1,9 +1,4 @@
-import { SERVER_PROPS_ID } from 'next/dist/shared/lib/constants'
-import Link from 'next/link'
 import styled from 'styled-components'
-import { Theme } from 'styles/theme'
-import { useContext } from 'react'
-import { GlobalContext } from 'context/GlobalContext'
 
 // const {theme} = useContext(GlobalContext)
 export const StyledMenu = styled.section.attrs(props => ({
