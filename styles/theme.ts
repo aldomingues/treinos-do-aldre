@@ -1,4 +1,6 @@
 export interface ThemeProps {
+    theme_name: string,
+
     primary: {
         default: string,
         light: string,
@@ -22,6 +24,8 @@ export interface ThemeProps {
 }
 
 export const Theme: ThemeProps = {
+    theme_name: "light",
+
     primary: {
         default: "#ed682f",
         light: "#eb7442",
@@ -52,6 +56,8 @@ export const Theme: ThemeProps = {
 }
 
 export const DarkTheme: ThemeProps = {
+    theme_name: "dark",
+    
     primary: {
         default: "#ed682f",
         light: "#eb7442",

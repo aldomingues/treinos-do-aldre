@@ -8,7 +8,7 @@ class Testes {
         Testes.instance = this;
     }
 
-    async customRequest(model: string, method: string, query: string): Promise<any> {
+    async customRequest(model: string, method: string, query: string, payload: any): Promise<any> {
         const headers = {
             headers: {
                 "Content-Type": "application/json",
@@ -19,9 +19,13 @@ class Testes {
             case "get":
                 response = await api.get(`${model}?${query}`, headers);
                 break;
-            
+
             case "post":
-                response = await api.post(`${model}`, {}, headers);
+                response = await api.post(`${model}`, payload, headers);
+                break;
+
+            case "delete":
+                response = await api.delete(`${model}?${query}`, headers);
                 break;
             default:
                 response = {}

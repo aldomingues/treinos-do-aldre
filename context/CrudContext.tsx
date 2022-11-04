@@ -8,7 +8,11 @@ export const CrudContext = createContext({} as {
     selectedMenu: string,
     items: any[],
     tags: any[],
-    loading: boolean
+    loading: boolean,
+    refreshItems: (load?: boolean) => void,
+    refreshTags: (load?: boolean) => void,
+    actionId: number,
+    setActionId: (actionId: number) => void
 })
 
 export function CrudProvider({ children }: any) {
@@ -17,32 +21,36 @@ export function CrudProvider({ children }: any) {
     const [selectedMenu, selectMenu] = useState<"item" | "tag">("item");
     const [stage, setStage] = useState<"table" | "edit" | "new">("table");
     const [loading, setLoading] = useState<boolean>(false);
+    const [actionId, setActionId] = useState(-1);
     const service = TestesService();
 
-    const refreshItems = async () => {
-        setItems([]);
-        setLoading(true);
-        const res = await service.customRequest("item", "get", "");
+    const refreshItems = async (load: boolean = false) => {
+        console.log(load)
+        if (load) { setItems([]) };
+        setLoading(load);
+        const res = await service.customRequest("item", "get", "", {});
         setItems(res.data);
         setLoading(false);
+        setActionId(-1)
     }
 
-    const refreshTags = async () => {
-        setTags([]);
-        setLoading(true);
-        const res = await service.customRequest("tag", "get", "");
+    const refreshTags = async (load: boolean = false) => {
+        if (load) { setTags([]) };
+        setLoading(load);
+        const res = await service.customRequest("tag", "get", "", {});
         setTags(res.data);
         setLoading(false);
+        setActionId(-1)
     }
 
     useEffect(() => {
         if (selectedMenu && (stage === "table")) {
             switch (selectedMenu) {
                 case "item":
-                    refreshItems();
+                    refreshItems(true);
                     break;
                 case "tag":
-                    refreshTags();
+                    refreshTags(true);
                     break;
                 default:
                     break;
@@ -52,7 +60,17 @@ export function CrudProvider({ children }: any) {
 
 
     return (
-        <CrudContext.Provider value={{ selectedMenu, selectMenu, items, tags, loading }}>
+        <CrudContext.Provider value={{
+            selectedMenu,
+            selectMenu,
+            items,
+            tags,
+            loading,
+            refreshItems,
+            refreshTags,
+            actionId,
+            setActionId
+        }}>
             {children}
         </CrudContext.Provider>
     )

@@ -16,7 +16,8 @@ const Home: NextPage = () => {
         const res = await testeService.customRequest(
             data.target[0].value,
             data.target[1].value,
-            data.target[2].value
+            data.target[2].value,
+            {}
         )
         setResponse(res)
     }
