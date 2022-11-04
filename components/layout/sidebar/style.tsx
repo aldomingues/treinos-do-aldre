@@ -12,7 +12,7 @@ export const StyledSideBar = styled.div.attrs(props => ({
     position: fixed;
     top: 0;
     left: 0;
-    background-color: ${props => props.theme.dark_background};
+    background-color: ${props => props.theme.secondary.default};
     transition: background-color 0.3s ease-in;
     box-shadow: -3px 0px 5px 2px ${props => props.theme.inverse};
     padding-top: 30px;
@@ -23,7 +23,8 @@ export const StyledSideBar = styled.div.attrs(props => ({
     }
 
     .item_menu {
-        color: ${props => props.theme.inverse};
+        // color: ${props => props.theme.color};
+        color: #fff;
         margin: 20px 40px 0px 40px;
         padding: 10px 30px;
         border-radius: 4px;
@@ -34,21 +35,21 @@ export const StyledSideBar = styled.div.attrs(props => ({
         
         svg {
             margin-right: 4px;
-            fill: ${props => props.theme.inverse};
+            // fill: ${props => props.theme.color};
+            fill: #fff;
         }
         
         &:hover {
             cursor: pointer;
-            background-color: ${props => props.theme.background};
+            background-color: ${props => props.theme.secondary.light};
         }
         
         &.selected {
-            background-color: ${props => props.theme.light_background};
+            background-color: ${props => props.theme.secondary.light};
         }
     }
 
     .footer_item_menu {
-        color: ${props => props.theme.inverse};
         margin: 20px 50px;
         border-radius: 4px;
         transition: background-color 0.1s ease-in;
@@ -59,7 +60,8 @@ export const StyledSideBar = styled.div.attrs(props => ({
         
         svg {
             margin-right: 4px;
-            fill: ${props => props.theme.inverse};
+            // fill: ${props => props.theme.color};
+            fill: #fff;
             transition: fill 0.3s ease-in;
             height: 2.5em;
             width: 2.5em;
@@ -68,7 +70,7 @@ export const StyledSideBar = styled.div.attrs(props => ({
 
             :hover {
                 cursor: pointer;
-                background-color: ${props => props.theme.background};
+                background-color: ${props => props.theme.secondary.light};
             }
         }
     }
@@ -99,7 +101,7 @@ export const StyledSideBar = styled.div.attrs(props => ({
             margin: 20px 20px;
             padding: 10px 20px;
             justify-content: center;
-            border: solid 2px ${props => props.theme.inverse};
+            border: solid 2px ${props => props.theme.color};
         }
 
         &.show {
