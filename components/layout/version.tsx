@@ -6,21 +6,20 @@ import pkg from "package.json"
 
 const Version = () => {
     const { theme } = useContext(GlobalContext);
+
+    const StyledVersion = styled.div`
+        position: fixed;
+        bottom: 5px;
+        left: 5px;
+        color: ${theme.inverse};
+        font-weight: 300;
+    `
+
     return (
-        <StyledVersion theme={theme}>
+        <StyledVersion>
             Versão {pkg.version}
         </StyledVersion>
     )
 }
-
-export const StyledVersion = styled.div.attrs(props => ({
-    theme: props.theme,
-}))`
-    position: fixed;
-    bottom: 5px;
-    left: 5px;
-    color: ${props => props.theme.inverse};
-    font-weight: 300;
-`
 
 export default Version

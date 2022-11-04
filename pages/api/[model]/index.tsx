@@ -12,7 +12,7 @@ export default async function handle(req: any, res: any) {
         try {
             //@ts-ignore
             let itens = await prisma[req.query.model].create({
-                data: {}
+                data: req.body
             });
             res.json(itens);
             await prisma.$disconnect();
@@ -22,5 +22,12 @@ export default async function handle(req: any, res: any) {
         } finally {
             await prisma.$disconnect();
         }
+    }
+
+    if (req.method === 'DELETE') {
+        //@ts-ignore
+        let itens = await prisma[req.query.model].delete({where: {id: Number(req.query.id)}})
+        await prisma.$disconnect();
+        res.json(itens);
     }
 }

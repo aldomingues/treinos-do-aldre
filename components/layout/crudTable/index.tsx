@@ -2,6 +2,7 @@ import { StyledTable } from "./style"
 import { GlobalContext } from "context/GlobalContext";
 import { useContext } from "react";
 import { FaTrashAlt, FaPlus, FaPen } from "react-icons/fa"
+import SubmitSpinner from '@components/layout/submitSpinner'
 
 interface DataTable {
     columns: {
@@ -12,11 +13,13 @@ interface DataTable {
     data: any[],
     createFunc?: Function,
     deleteFunc?: Function,
-    editFunc?: Function
+    editFunc?: Function,
+    actionId?: number
 }
 
 const Table = (props: DataTable) => {
     const { theme } = useContext(GlobalContext);
+    const contrastColor = theme.theme_name == "dark" ? "#fff" : theme.secondary.default;
 
     return (
         <StyledTable theme={theme}>
@@ -38,15 +41,22 @@ const Table = (props: DataTable) => {
                                 </td>
                             ))}
                             {(props.deleteFunc || props.editFunc) &&
-                            <td>
-                                {props.deleteFunc && <FaTrashAlt className="delete" onClick={() => {if (props.deleteFunc) {props.deleteFunc(item)}}}/>}
-                                {props.editFunc && <FaPen className="edit" onClick={() => {if (props.editFunc) {props.editFunc(item)}}}/>}
-                            </td>}
+                                <>
+                                    {(props.actionId && (props.actionId == item.id)) ?
+                                        <td>
+                                            <SubmitSpinner color={contrastColor} />
+                                        </td>
+                                        :
+                                        <td className="action_col">
+
+                                            {props.deleteFunc && <FaTrashAlt className="delete" onClick={() => { if (props.deleteFunc && (props.actionId == -1)) { props.deleteFunc(item) } }} />}
+                                            {props.editFunc && <FaPen className="edit" onClick={() => { if (props.editFunc) { props.editFunc(item) } }} />}
+                                        </td>
+                                    }
+                                </>
+                            }
                         </tr>
                     ))}
-                    {(props.data.length == 0) &&
-                        <span> Nenhum dado encontrado </span>
-                    }
                 </tbody>
             }
         </StyledTable>

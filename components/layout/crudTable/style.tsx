@@ -39,7 +39,7 @@ export const StyledTable = styled.table.attrs(props => ({
         text-align: left;
     }
 
-    td:last-child {
+    .action_col {
         padding: 3px 10px;
         svg {
             padding: 4px;
@@ -57,11 +57,11 @@ export const StyledTable = styled.table.attrs(props => ({
             }
 
             &.delete {
-                // background-color: ${props => props.theme.primary.default};
-                background-color: #de381f;
+                background-color: #f72121;
+                // background-color: #de381f;
             }
             &.edit {
-                background-color: ${props => props.theme.secondary.default};
+                background-color: ${props => props.theme.primary.dark};
             }
         }
         svg:not(:first-child) {
