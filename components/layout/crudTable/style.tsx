@@ -13,11 +13,11 @@ export const StyledTable = styled.table.attrs(props => ({
     overflow: auto;
 
     td {
-        border-top: solid 2px ${props => props.theme.dark_background};
+        border-top: solid 2px ${props => props.theme.secondary.default};
     }
     .custom_row {
         td:not(:first-child), th:not(:first-child) {
-            border-left: solid 2px ${props => props.theme.dark_background};
+            border-left: solid 2px ${props => props.theme.secondary.default};
         }
 
         :hover {
@@ -28,7 +28,8 @@ export const StyledTable = styled.table.attrs(props => ({
     }
 
     .custom_head {
-        background-color: ${props => props.theme.dark_background};
+        color: #fff;
+        background-color: ${props => props.theme.secondary.default};
         transition: background-color 0.3s ease-in;
     }
     td, th {
@@ -46,7 +47,7 @@ export const StyledTable = styled.table.attrs(props => ({
             width: 1.5rem;
             border-radius: 8px;
             background-color: red;
-            fill: ${props => props.theme.color};
+            fill: #fff;
             transition: all 0.05s ease-in;
 
             :hover {
